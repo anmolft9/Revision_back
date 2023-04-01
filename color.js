@@ -1,6 +1,9 @@
 var numSquare = 6;
 var square = document.querySelectorAll(".square");
 var color = generateRandomColor(numSquare);
+var chosenColor = colorChosen();
+var resultDisplay = document.getElementById("result");
+var h1 = document.querySelector("h1");
 
 // const generateRandomColor = (num) => {
 //   let arr = [];
@@ -13,6 +16,25 @@ var color = generateRandomColor(numSquare);
 
 for (var i = 0; i < square.length; i++) {
   square[i].style.backgroundColor = color[i];
+
+  square[i].addEventListener("click", function () {
+    var clickedColor = this.style.backgroundColor;
+
+    if (clickedColor === chosenColor) {
+      resultDisplay.textContent = "CORRECT";
+      colorChange(clickedColor);
+      h1.style.backgroundColor = clickedColor;
+    } else {
+      resultDisplay.textContent = "INCORRECT";
+      this.style.backgroundColor = "#232323";
+    }
+  });
+}
+
+function colorChange(color) {
+  for (var i = 0; i < square.length; i++) {
+    square[i].style.backgroundColor = color;
+  }
 }
 
 function colorChosen() {
