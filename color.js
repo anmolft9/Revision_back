@@ -11,6 +11,15 @@ var color = generateRandomColor(numSquare);
 //   return arr;
 // };
 
+for (var i = 0; i < square.length; i++) {
+  square[i].style.backgroundColor = color[i];
+}
+
+function colorChosen() {
+  var ran = Math.floor(Math.random() * color.length);
+  return color[ran];
+}
+
 function generateRandomColor(num) {
   // make an array
   var arr = [];
