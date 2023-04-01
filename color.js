@@ -1,6 +1,15 @@
 var numSquare = 6;
+var square = document.querySelectorAll(".square");
+var color = generateRandomColor(numSquare);
 
-generate;
+generateRandomColor = (numSquare) => {
+  let arr = [];
+
+  for (var i = 0; i < num; i++) {
+    arr.push(ranColors());
+  }
+  return arr;
+};
 
 const ranColors = () => {
   var r = Math.floor(Math.random() * 256);
@@ -9,5 +18,3 @@ const ranColors = () => {
 
   return "rgb(" + r + ", " + g + ", " + b + ")";
 };
-
-console.log(ranColors());
