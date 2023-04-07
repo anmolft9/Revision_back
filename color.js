@@ -6,6 +6,7 @@ var resultDisplay = document.getElementById("result");
 var h1 = document.querySelector("h1");
 var resetButton = document.getElementById("reset");
 var colorDisplay = document.getElementById("colorSelected");
+var modesButton = document.querySelectorAll(".modes");
 
 // const generateRandomColor = (num) => {
 //   let arr = [];
@@ -15,6 +16,16 @@ var colorDisplay = document.getElementById("colorSelected");
 //   }
 //   return arr;
 // };
+
+for (var i = 0; i < modesButton.length; i++) {
+  modesButton[i].addEventListener("click", function () {
+    modesButton[0].classList.remove("selected");
+    modesButton[1].classList.remove("selected");
+    this.classList.add("selected");
+    this.textContent === "Easy" ? (numSquare = 3) : (numSquare = 6);
+    reget();
+  });
+}
 
 function reget() {
   color = generateRandomColor(numSquare);
