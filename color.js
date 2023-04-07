@@ -4,6 +4,8 @@ var color = generateRandomColor(numSquare);
 var chosenColor = colorChosen();
 var resultDisplay = document.getElementById("result");
 var h1 = document.querySelector("h1");
+var resetButton = document.getElementById("reset");
+var colorDisplay = document.getElementById("colorSelected");
 
 // const generateRandomColor = (num) => {
 //   let arr = [];
@@ -14,8 +16,32 @@ var h1 = document.querySelector("h1");
 //   return arr;
 // };
 
+function reget() {
+  color = generateRandomColor(numSquare);
+  chosenColor = colorChosen();
+
+  colorDisplay.textContent = chosenColor;
+  resetButton.textContent = "New colors";
+  resultDisplay.textContent = "";
+
+  for (var i = 0; i < square.length; i++) {
+    if (color[i]) {
+      square[i].style.display = "block";
+      square[i].style.backgroundColor = color[i];
+    } else {
+      square[i].style.display = "none";
+    }
+  }
+  h1.style.backgroundColor = "steelblue";
+}
+
+resetButton.addEventListener("click", function () {
+  reget();
+});
+
 for (var i = 0; i < square.length; i++) {
   square[i].style.backgroundColor = color[i];
+  colorDisplay.textContent = chosenColor;
 
   square[i].addEventListener("click", function () {
     var clickedColor = this.style.backgroundColor;
@@ -24,6 +50,7 @@ for (var i = 0; i < square.length; i++) {
       resultDisplay.textContent = "CORRECT";
       colorChange(clickedColor);
       h1.style.backgroundColor = clickedColor;
+      resetButton.textContent = "Play again?";
     } else {
       resultDisplay.textContent = "INCORRECT";
       this.style.backgroundColor = "#232323";
