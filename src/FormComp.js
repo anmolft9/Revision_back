@@ -4,7 +4,7 @@ export const FormComp = ({ getTheData }) => {
   const [str, setStr] = useState("");
 
   const handleOnChange = (e) => {
-    const value = e.target.value;
+    const { value } = e.target;
     setStr(value);
   };
 

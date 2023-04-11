@@ -1,16 +1,12 @@
 import React from "react";
 
-export const TableComponent = ({ sendTheData }) => {
-  console.log(sendTheData);
+export const TableComponent = ({ props }) => {
+  //   console.log(sendTheData);
   return (
-    <table>
-      <ul>
-        <li>
-          {sendTheData.map((e) => {
-            return <li>{e}</li>;
-          })}
-        </li>
-      </ul>
-    </table>
+    <ul>
+      {props.map((e) => {
+        return <li>{e}</li>;
+      })}
+    </ul>
   );
 };
