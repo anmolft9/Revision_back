@@ -8,6 +8,7 @@ const App = () => {
   const getTheData = (str) => {
     setArr([...arr, str]);
   };
+  console.log(arr);
 
   return (
     <div className="App">
