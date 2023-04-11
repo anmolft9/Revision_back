@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { FormComp } from "./FormComp.js";
+import { TableComponent } from "./TableComponent.js";
 
-function App() {
+const App = () => {
+  const [arr, setArr] = useState([""]);
+
+  const getTheData = (str) => {
+    setArr([...arr, str]);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FormComp getTheData={getTheData} />
+      <TableComponent sendTheData={arr} />
     </div>
   );
-}
+};
 
 export default App;
